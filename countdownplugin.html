@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="flipclock.css">
+</head>
+<style>
+    /* *{
+        margin: 0 !important;
+        padding: 0 !important;
+    } */
+
+    *{
+        overflow: hidden;
+    }
+
+    body{
+        background: linear-gradient(45deg, rgba(0, 255, 213, 0.852) 20%, rgba(44, 180, 151, 0.782) 50%, rgb(90, 243, 97) 100%);
+
+    }
+
+    .clock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+</style>
+<body>
+    <div class="clock"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="flipclock.min.js"></script>
+    <script>
+        var clock = $('.clock').FlipClock({
+            clockFace: 'DailyCounter',
+            autoStart: false,
+            callbacks: {
+                stop: function () {
+                    $('.message').html('The clock has stopped!')
+                }
+            }
+        });
+
+        // set time
+        clock.setTime(220880);
+
+        // countdown mode
+        clock.setCountdown(true);
+
+        // start the clock
+        clock.start();
+
+
+    </script>
+</body>
+
+</html>
